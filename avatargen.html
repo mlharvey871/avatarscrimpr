@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+    <title> Scrimpr Avatar</title>
+
+    <script>
+
+        window.onload = function () {
+
+            var pigHead = new Image();
+            var pigHeadNum = Math.floor(Math.random() * 10) + 1;
+            var pigHeadName = "head" + pigHeadNum + ".png";
+            pigHead.src = pigHeadName;
+
+            pigHead.onload = function () {
+
+                buildPig();
+
+            }
+
+            function buildPig() {
+
+                var canvas = document.getElementById('canvas');
+                var context = canvas.getContext('2d');
+                canvas.width = 100;
+                canvas.height = 100;
+
+                context.drawImage(pigHead, ((100 - pigHead.width) / 2), 30);
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div align="center">
+
+        <canvas id="canvas" style="border:3px solid black;"></canvas>
+        <br>
+        <br>
+
+        <button onClick="window.location.reload();">Create</button>
+
+    </div>
+
+</body>
+
+</html>
