@@ -4,13 +4,29 @@
 
     <title> Scrimpr Avatar</title>
 
+    <style>
+        img {
+            height: 500px;
+            width: 450px;
+        }
+
+        h1 {
+            color: darkgreen;
+            margin-top: 20px;
+            font-family: Comic Sans MS, cursive, sans-serif;
+        }
+
+        .button {
+            margin-left: 45%;
+        }
+    </style>
     <script>
 
         window.onload = function () {
 
-            var pigHead = new Image();
-            var pigHeadNum = Math.floor(Math.random() * 10) + 1;
-            var pigHeadName = "head" + pigHeadNum + ".png";
+            let pigHead = new Image();
+            let pigHeadNum = Math.floor(Math.random() * 10) + 1;
+            let pigHeadName = "head" + pigHeadNum + ".png";
             pigHead.src = pigHeadName;
 
             pigHead.onload = function () {
@@ -21,14 +37,34 @@
 
             function buildPig() {
 
-                var canvas = document.getElementById('canvas');
-                var context = canvas.getContext('2d');
+                let canvas = document.getElementById('canvas');
+                let context = canvas.getContext('2d');
                 canvas.width = 100;
                 canvas.height = 100;
 
                 context.drawImage(pigHead, ((100 - pigHead.width) / 2), 30);
 
             }
+
+        }
+
+
+        function myFunction() {
+            let item = "Bananas";
+            let result = item.strike();
+            document.getElementById("test").innerHTML = result;
+        }
+
+
+        function before() {
+            document.getElementById('item')
+                .src = "banana.jpg";
+
+        }
+
+        function after() {
+            document.getElementById('item')
+                .src = "happyscrimpy.png";
 
         }
 
@@ -48,6 +84,36 @@
 
     </div>
 
-</body>
+    <div>
+
+
+        <p id="test">Bananas</p>
+
+        <button onclick="myFunction()">Check</button>
+
+
+
+
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+                <img id="item" src="banana.jpg">
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <div class="button">
+        <button class="btn btn-warning" onclick=before();>
+            Add to list
+        </button>
+        <button class="btn btn-success" onclick=after();>
+            Check off
+        </button>
+    </div>
 
 </html>
